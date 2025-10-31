@@ -1,0 +1,5 @@
+<<<<<<< HEAD
+Bob's line
+=======
+Alice's line
+>>>>>>> alice/changes
