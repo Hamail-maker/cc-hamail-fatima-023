@@ -1,0 +1,5 @@
+This is my first note in Git.
+This is a new line for testing merge
+Hamail Fatima – I love learning new technologies!
+hajrasarwar11 – I enjoy solving coding challenges!
+
