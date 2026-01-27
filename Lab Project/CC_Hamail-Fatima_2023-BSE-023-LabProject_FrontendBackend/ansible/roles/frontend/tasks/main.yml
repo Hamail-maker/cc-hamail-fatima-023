@@ -1,0 +1,29 @@
+---
+- name: Update yum cache
+  yum:
+    name: "*"
+    state: latest
+    update_cache: true
+
+- name: Install Nginx
+  yum:
+    name:
+      - nginx
+      - wget
+      - curl
+    state: present
+
+- name: Deploy Nginx configuration
+  template:
+    src: nginx_frontend.conf.j2
+    dest: /etc/nginx/nginx.conf
+    owner: root
+    group: root
+    mode: '0644'
+  notify: Restart nginx
+
+- name: Enable and start Nginx service
+  service:
+    name: nginx
+    state: started
+    enabled: true

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backend Server</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin: 0 0 20px 0;
+        }
+        .info {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            text-align: left;
+        }
+        .label {
+            font-weight: bold;
+            color: #666;
+        }
+        .value {
+            color: #333;
+            font-family: monospace;
+            margin-left: 10px;
+        }
+        .badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🖥️ Backend HTTPD Server</h1>
+        <div class="info">
+            <div><span class="label">Hostname:</span> <span class="value">{{ inventory_hostname }}</span></div>
+        </div>
+        <div class="info">
+            <div><span class="label">Private IP:</span> <span class="value">{{ ansible_default_ipv4.address | default('unknown') }}</span></div>
+        </div>
+        <div class="info">
+            <div><span class="label">Server Name:</span> <span class="value">Backend #{{ groups['backends'].index(inventory_hostname) + 1 }}</span></div>
+        </div>
+        <p class="badge">Served via Nginx Load Balancer</p>
+    </div>
+</body>
+</html>

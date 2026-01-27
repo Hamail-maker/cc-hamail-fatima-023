@@ -1,0 +1,9 @@
+frontend_server_ip: "frontend.example.com"
+backend_servers:
+  - "httpd1.example.com"
+  - "httpd2.example.com"
+  - "httpd3.example.com"
+nginx_port: 80
+httpd_port: 8080
+max_connections: 1024
+keepalive_timeout: 65

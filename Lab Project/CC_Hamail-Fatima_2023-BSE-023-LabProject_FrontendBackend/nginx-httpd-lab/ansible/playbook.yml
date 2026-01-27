@@ -1,0 +1,9 @@
+- hosts: frontend
+  become: yes
+  roles:
+    - nginx-frontend
+
+- hosts: backend
+  become: yes
+  roles:
+    - httpd-backend

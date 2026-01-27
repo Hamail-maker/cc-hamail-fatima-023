@@ -1,0 +1,14 @@
+server {
+    Listen 80;
+    ServerName localhost;
+
+    DocumentRoot "/var/www/html"
+
+    <Directory "/var/www/html">
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    ErrorLog "/var/log/httpd/error.log"
+    CustomLog "/var/log/httpd/access.log" combined
+}

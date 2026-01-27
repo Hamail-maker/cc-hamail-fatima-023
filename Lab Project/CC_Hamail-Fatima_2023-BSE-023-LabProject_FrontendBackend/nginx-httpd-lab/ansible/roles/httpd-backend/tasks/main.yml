@@ -1,0 +1,38 @@
+- name: Install Apache HTTPD
+  yum:
+    name: httpd
+    state: present
+
+- name: Start and enable Apache HTTPD
+  service:
+    name: httpd
+    state: started
+    enabled: true
+
+- name: Deploy HTTPD configuration
+  template:
+    src: httpd.conf.j2
+    dest: /etc/httpd/conf/httpd.conf
+  notify: Restart Apache
+
+- name: Create index.html for backend
+  copy:
+    content: "<h1>Welcome to Backend Server {{ inventory_hostname }}</h1>"
+    dest: /var/www/html/index.html
+
+- name: Ensure the web server is running
+  uri:
+    url: "http://localhost"
+    return_content: yes
+  register: result
+
+- name: Check if the backend server is reachable
+  fail:
+    msg: "Backend server is not reachable"
+  when: result.status != 200
+
+handlers:
+  - name: Restart Apache
+    service:
+      name: httpd
+      state: restarted

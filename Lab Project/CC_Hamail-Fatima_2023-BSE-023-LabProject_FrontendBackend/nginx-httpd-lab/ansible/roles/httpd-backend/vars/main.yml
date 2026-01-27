@@ -1,0 +1,11 @@
+vhosts:
+  - server_name: backend1
+    document_root: /var/www/html/backend1
+  - server_name: backend2
+    document_root: /var/www/html/backend2
+  - server_name: backend3
+    document_root: /var/www/html/backend3
+
+httpd_port: 80
+max_clients: 150
+timeout: 60

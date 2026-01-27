@@ -1,0 +1,5 @@
+- name: Restart Apache
+  service:
+    name: httpd
+    state: restarted
+  when: httpd_config_changed is changed

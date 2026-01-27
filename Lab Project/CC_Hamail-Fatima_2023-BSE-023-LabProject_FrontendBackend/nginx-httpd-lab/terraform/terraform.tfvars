@@ -1,0 +1,8 @@
+aws_region         = "us-central-1"
+vpc_cidr_block     = "10.0.0.0/16"
+subnet_cidr_block  = "10.0.1.0/24"
+availability_zone  = "us-central-1a"
+env_prefix         = "nginx-httpd"
+instance_type      = "t2.micro"
+public_key         = "json"
+private_key        = "C:/path/to/json.pem"

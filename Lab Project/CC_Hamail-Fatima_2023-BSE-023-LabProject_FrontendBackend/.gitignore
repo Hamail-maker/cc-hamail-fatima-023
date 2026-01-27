@@ -1,0 +1,28 @@
+.terraform
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+*.pem
+*.key
+*.pub
+.env
+.envrc
+
+# Ansible
+*.retry
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
